@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box
+}
+
+.carousel {
+    &-wrapper {
+        width: 700px;
+        height: 450px;
+        position: relative;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        top: 20vh;
+
+        .dots-wrapper {
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            bottom: 24px;
+            left: 50%;
+            transform: translate(-50%, 50%);
+    
+            .dot {
+                height: 16px;
+                width: 16px;
+                background-color: transparent;
+                border: 2px solid white;
+                border-radius: 50%;
+                margin: 0 5px;
+                cursor: pointer;
+
+                &.active {
+                    background-color: white;
+                }
+
+                &:hover {
+                    background-color: white;
+                }
+            }
+        }
+    }
+
+    &-slide {
+        max-width: 100%;
+        max-height: 100%;
+        text-align: center;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &-btn {
+        position: absolute;
+        top: 0;
+        font-size: 48px;
+        color: white;
+        text-align: center;
+        padding: 0;
+        height: 100%;
+        width: 10%;
+        border: none;
+        opacity: 0.3;
+
+        &-prev {
+            left: 0;
+            background-image: linear-gradient(to right, grey , transparent);
+    
+            &::before { 
+                content:"\2039";
+            }
+        }
+    
+        &-next {
+            right: 0;
+            background-image: linear-gradient(to left, grey , transparent);
+        
+            &::after { 
+                content:"\203A"; 
+            }
+        }
+
+        &:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+    }
+}

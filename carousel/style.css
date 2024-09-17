@@ -1,0 +1,82 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+.carousel-wrapper {
+  width: 700px;
+  height: 450px;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  top: 20vh;
+}
+.carousel-wrapper .dots-wrapper {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.carousel-wrapper .dots-wrapper .dot {
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.carousel-wrapper .dots-wrapper .dot.active {
+  background-color: white;
+}
+.carousel-wrapper .dots-wrapper .dot:hover {
+  background-color: white;
+}
+.carousel-slide {
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  display: none;
+}
+.carousel-slide.active {
+  display: block;
+}
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.carousel-btn {
+  position: absolute;
+  top: 0;
+  font-size: 48px;
+  color: white;
+  text-align: center;
+  padding: 0;
+  height: 100%;
+  width: 10%;
+  border: none;
+  opacity: 0.3;
+}
+.carousel-btn-prev {
+  left: 0;
+  background-image: linear-gradient(to right, grey, transparent);
+}
+.carousel-btn-prev::before {
+  content: "‹";
+}
+.carousel-btn-next {
+  right: 0;
+  background-image: linear-gradient(to left, grey, transparent);
+}
+.carousel-btn-next::after {
+  content: "›";
+}
+.carousel-btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

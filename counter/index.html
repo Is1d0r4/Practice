@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px;
+      }
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .placeholder {
+        text-align: center;
+        margin: 20px 0;
+
+        &.history {
+          border: 1px solid black;
+          min-width: 100px;
+          min-height: 100px;
+        }
+      }
+      ul {
+        list-style-type: none;
+      }
+      .top-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-buttons">
+      <button onclick="undo()">Undo</button>
+      <button onclick="redo()" id="redoBtn" disabled>Redo</button>
+    </div>
+    <div class="container">
+      <div class="buttons">
+        <button onclick="add(1)">+1</button>
+        <button onclick="add(10)">+10</button>
+        <button onclick="add(100)">+100</button>
+      </div>
+      <div class="placeholder current-value">
+        <div id="currentValue">0</div>
+      </div>
+      <div class="buttons">
+        <button onclick="subtract(1)">-1</button>
+        <button onclick="subtract(10)">-10</button>
+        <button onclick="subtract(100)">-100</button>
+      </div>
+    </div>
+    <div class="placeholder history">
+      <div id="history"></div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>

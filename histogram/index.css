@@ -1,0 +1,60 @@
+.histo-wrapper {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+    width: 100vw;
+    height: 100vh;
+}
+
+.histogram {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-column: 2 / 14;
+    grid-row: 2 / 14;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    align-items: flex-end;
+
+    .bar {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(58, 213, 213);
+
+        &:nth-child(2n) {
+            background-color: rgba(208, 0, 255, 1);
+        }
+    }
+}
+
+.x-axis {
+    display: grid;
+    grid-column: 2 / 14;
+    grid-row: 14;
+    grid-template-columns: repeat(11, 1fr);
+    justify-items: center;
+
+    .x-span {
+        width: 10%;
+        text-align: center;
+    }
+}
+
+.y-axis {
+    position: relative;
+    grid-row: 2 / 14;
+    grid-column: 1;
+
+    .coordinantes-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        margin-left: -8px;
+        width: 100%;
+        height: 100%;
+        margin-top: 9px;
+    }
+
+    .y-span {
+        position: absolute;
+    }
+}
