@@ -1,34 +1,42 @@
-function deepCopy(value) {
-  if (value === null || typeof value !== "object") {
-    return value;
+function deepClone(source, clonedMap) {
+  clonedMap = clonedMap || new Map();
+
+  if (clonedMap.has(source)) {
+    return clonedMap.get(source);
   }
 
-  if (Array.isArray(value)) {
-    const arrayCopy = value.map((element) => deepCopy(element));
-    return arrayCopy;
+  if (typeof source !== "object" || source === null) {
+    return source;
   }
 
-  if (typeof value === "object") {
-    let copyObj = [];
+  let result;
+  const type = getType(source);
 
-    for (let key in value) {
-      copyObj.push([key, value[key]]);
+  if (type === "object" || type === "array") {
+    debugger;
+    result = type === "object" ? {} : [];
+    clonedMap.set(source, result);
+    for (const key in source) {
+      if (source.hasOwnProperty(key)) {
+        result[key] = deepClone(source[key], clonedMap);
+      }
     }
-    return Object.fromEntries(copyObj);
+  } else {
+    result = source;
   }
-}
 
+  return result;
+}
+function getType(source) {
+  Object.prototype.toString
+    .call(source)
+    .replace(/^\[object (.+)\]$/, "$1")
+    .toLowerCase();
+}
 const obj = {
   a: 1,
   b: {
-    c: 3,
-    d: {
-      e: 1,
-      g: 2,
-    },
+    c: 2,
   },
 };
-
-const objCopy = deepCopy(obj);
-
-console.log(objCopy);
+const clone = deepClone(obj);
