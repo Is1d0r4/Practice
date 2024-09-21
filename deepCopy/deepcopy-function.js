@@ -13,7 +13,6 @@ function deepClone(source, clonedMap) {
   const type = getType(source);
 
   if (type === "object" || type === "array") {
-    debugger;
     result = type === "object" ? {} : [];
     clonedMap.set(source, result);
     for (const key in source) {
@@ -28,7 +27,7 @@ function deepClone(source, clonedMap) {
   return result;
 }
 function getType(source) {
-  Object.prototype.toString
+  return Object.prototype.toString
     .call(source)
     .replace(/^\[object (.+)\]$/, "$1")
     .toLowerCase();
@@ -39,4 +38,4 @@ const obj = {
     c: 2,
   },
 };
-const clone = deepClone(obj);
+console.log(deepClone(obj));
