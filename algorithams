@@ -1,0 +1,74 @@
+/**
+ * Compare two strings where backspace is represented by '#'.
+ * The strings are considered the same if they have the same length
+ * and the same characters at the same indices after processing backspaces.
+ * The strings contain only lowercase English letters and backspaces.
+ */
+
+function compareStrings(s1, s2) {
+  while (s1.lenght > 0 || s2.lenght > 0) {
+    let i = s1.length - 1;
+    let j = s2.length - 1;
+    let backspace = 0;
+    while (s1[i] === "#" || s2[j] === "#") {
+      if (s1[i] === "#") {
+        backspace++;
+        i--;
+      } else {
+        backspace--;
+        j--;
+      }
+    }
+    if (s1[i] !== s2[j]) {
+      return false;
+    }
+    i--;
+    j--;
+  }
+}
+
+/**
+ * Given a sequence of brackets, determine the minimum number of swaps required
+ * to make each opening bracket '(' have a corresponding closing bracket ')'.
+ * Brackets are only '(' and ')'.
+ * It is not necessary to swap adjacent brackets only.
+ * If it is not possible to swap to achieve balanced brackets, return -1.
+ */
+
+function minimumSwaps(s) {
+  let open = 0;
+  let close = 0;
+  let swap = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "(") {
+      open++;
+    } else {
+      if (open > 0) {
+        open--;
+      } else {
+        swap++;
+      }
+    }
+  }
+  return open === 0 ? swap : -1;
+}
+
+//anagram is a word that can be written by rearranging the letters of another word
+//given two strings, determine the minimum number of character in either string that must be modified to make the two strings anagrams
+//if it is not possible to make anagrams, return -1
+
+function minimumCharacters(s1, s2) {
+  let map = {};
+  let count = 0;
+  for (let i = 0; i < s1.length; i++) {
+    map[s1[i]] = map[s1[i]] + 1 || 1;
+  }
+  for (let i = 0; i < s2.length; i++) {
+    if (map[s2[i]]) {
+      map[s2[i]]--;
+    } else {
+      count++;
+    }
+  }
+  return count;
+}
