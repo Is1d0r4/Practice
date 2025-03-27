@@ -1,0 +1,11 @@
+.tasks-list {
+  list-style: none;
+}
+.tasks-list--item__done {
+  text-decoration: line-through;
+}
+.tasks-list--item__undone {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */

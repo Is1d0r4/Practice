@@ -1,0 +1,12 @@
+.tasks-list {
+    list-style: none;
+
+    &--item {
+        &__done{
+            text-decoration: line-through;
+        }
+        &__undone{
+            text-decoration: none;
+        }
+    }
+}

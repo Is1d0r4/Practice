@@ -165,4 +165,40 @@ tree.left.right = new BinaryTree(9);
 tree.right.left = new BinaryTree(7);
 tree.right.right = new BinaryTree(3);
 
-width(tree);
+// width(tree);
+
+function reverseArray(arr) {
+  let newArray = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    newArray.push(arr[i]);
+  }
+  return newArray;
+}
+
+function flatten(array) {
+  return array.reduce(
+    (prevArray, currenArray) => prevArray.concat(currenArray),
+    []
+  );
+}
+
+function loop(value, testValue, updateValue, bodyFn) {
+  for (let i = value; testValue(i); i = updateValue(i)) {
+    bodyFn(i);
+  }
+}
+
+function every(array, test) {
+  // for (let i = 0; i < array.length; i++) {
+  //   if (!test(array[i])) return false;
+  // }
+  // return true;
+  return !array.some((value) => !test(value));
+}
+
+console.log(every([1, 3, 5], (n) => n < 10));
+// → true
+console.log(every([2, 4, 16], (n) => n < 10));
+// → false
+console.log(every([], (n) => n < 10));
+// → true
